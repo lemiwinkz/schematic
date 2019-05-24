@@ -34,6 +34,8 @@ class SchematicTest extends Unit
      */
     protected function _before()
     {
+        die(var_dump(\Craft::$app));
+
         $this->module = new Schematic('schematic');
     }
 

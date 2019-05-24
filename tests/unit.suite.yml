@@ -6,4 +6,5 @@ actor: UnitTester
 modules:
     enabled:
         - Asserts
+        - \NerdsAndCompany\Schematic\TestModule
         - \Helper\Unit

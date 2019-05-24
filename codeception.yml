@@ -16,3 +16,16 @@ actor_suffix: Tester
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+modules:
+  config:
+    \NerdsAndCompany\Schematic\TestModule:
+      configFile: 'tests\_craft\config\test.php'
+      entryUrl: 'https://test.craftcms.test/'
+      entryScript: 'index.php'
+      projectConfig: {}
+      migrations: []
+      plugins: [{handle: 'schematic', class: 'NerdsAndCompany\Schematic\Schematic'}]
+      cleanup: false # Should tests and fixtures be cleaned
+      transaction: false # Wrap in transaction
+      dbSetup: {clean: false, setupCraft: false} # What DB setup work do we need to do.
+      fullMock: true

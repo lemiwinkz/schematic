@@ -265,4 +265,11 @@ class Schematic extends Plugin
             }
         }
     }
+
+    public static function getComponentMap() : array
+    {
+        return [
+            [ModelMapper::class, [null, 'modelMapper']]
+        ];
+    }
 }

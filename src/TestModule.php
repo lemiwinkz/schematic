@@ -1,8 +1,12 @@
 <?php
 
-namespace Helper;
 
-use Craft;
+namespace NerdsAndCompany\Schematic;
+
+
+use craft\test\Craft;
+use craft\test\TestSetup;
+use NerdsAndCompany\Schematic\Mappers\ModelMapper;
 use Yii;
 use craft\console\Application;
 use yii\console\Controller;
@@ -28,14 +32,23 @@ use craft\services\Volumes;
 use Codeception\Module;
 use Codeception\TestCase;
 use NerdsAndCompany\Schematic\Schematic;
-use NerdsAndCompany\Schematic\Mappers\ModelMapper;
 
-/**
- * UnitTest helper.
- *
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- */
-class Unit extends Module
+class TestModule extends Craft
 {
+    /**
+     * @param TestCase $test
+     *
+     * @throws \ReflectionException
+     * @throws \yii\base\Exception
+     * @throws \yii\base\InvalidConfigException
+     */
+    public function _before(TestCase $test)
+    {
+        parent::_before($test);
 
+        \Craft::$app->controller = TestSetup::getMock($test, Controller::class);
+        \Craft::$app->controller->module = Schematic::getInstance();
+
+        Schematic::$force = false;
+    }
 }
