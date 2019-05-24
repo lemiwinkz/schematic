@@ -30,7 +30,7 @@
     },
     "require": {
         "php": "^7.0",
-        "craftcms/cms": "dev-feature/tests#2dc8d13d3e3ef103cfbe149acecbd7254218d339",
+        "craftcms/cms": "dev-feature/tests#d27689b938b4edd967b45a3e8651cb74da01c49f",
         "symfony/yaml": "^3.0 || ^4.0"
     },
     "require-dev": {
